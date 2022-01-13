@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const protectAdminRoute = require('./../middlewares/protectPrivateRoute');
+const SneakerModel = require('./../models/Sneaker')
 
-return console.log(`\n\n
+
+console.log(`\n\n
 -----------------------------
 -----------------------------
      wax on / wax off !
@@ -10,7 +13,13 @@ return console.log(`\n\n
 );
 
 router.get("/", (req, res) => {
-  res.send("foo");
+  SneakerModel.find()
+  .then((dbResponse) => {
+    res.render('products', {
+      sneakers: dbResponse
+    })
+  })
+  .catch((e) => console.error(e))
 });
 
 router.get("/sneakers/:cat", (req, res) => {
