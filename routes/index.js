@@ -26,9 +26,21 @@ router.get("/sneakers/:cat", (req, res) => {
   res.render("products");
 });
 
-router.get("/one-product/:id", (req, res) => {
-  res.render("product_manage");
+
+router.get("/one-product/:id", async (req, res) => {
+  const sneakers = await SneakerModel.find();
+  res.render("one_product", {
+    sneakers
+  });
 });
+
+router.get("/prod-manage", async (req, res) => {
+  const sneakers = await SneakerModel.find();
+  res.render("products_manage", {
+    sneakers
+  });
+});
+
 
 router.get("/prod-add", protectAdminRoute, async (req, res, next) => {
   const tags = await TagModel.find()

@@ -1,29 +1,29 @@
 <div class="big-container product-manage-wrapper flexed-item">
-  <form method="pasta" action="/prod-edit/{{sneaker._id}}" class="edit-product-form">
+  <form method="post" action="/prod-edit/{{sneakerToEdit._id}}" class="edit-product-form">
     <h3 class="form-title"> Edit Sneaker</h3>
     <div class="form-item-wrapper flexed-item">
-      <label for="sneaker-name" class="label-name label">Model name</label>
-      <input id="sneaker-name" type="text" class="input-text input" placeholder="Nike Air Max 90" value="{{sneaker.name}}">
+      <label for="name" class="label-name label">Model name</label>
+      <input id="name" type="text" class="input-text input" name="name" placeholder="Nike Air Max 90" value="{{sneakerToEdit.name}}">
     </div>
     <div class="form-item-wrapper flexed-item">
-      <label for="sneaker-ref" class="label-ref label">Réf.</label>
-      <input id="sneaker-ref" type="text" class="input-text input" placeholder="ex: NV23498" value="{{sneaker.ref}}">
+      <label for="ref" class="label-ref label">Réf.</label>
+      <input id="ref" type="text" class="input-text input" name="ref" placeholder="ex: NV23498" value="{{sneakerToEdit.ref}}">
     </div>
     <div class="form-item-wrapper flexed-item">
-      <label for="sneaker-size" class="label-ref label">Size</label>
-      <input id="sneaker-size" type="number" class="input-text input" placeholder="ex: 37" value="{{sneaker.size}}">
+      <label for="size" class="label-ref label">Size</label>
+      <input id="size" type="number" class="input-text input" name="size" placeholder="ex: 37" value="{{sneakerToEdit.size}}">
     </div>
     <div class="form-item-wrapper flexed-item">
-      <label for="sneaker-descr" class="label-descr label">Description</label>
-      <input id="sneaker-descr" type="text" class="input-text input" placeholder="The better sneakers to run" value="{{sneaker.description}}">
+      <label for="description" class="label-descr label">Description</label>
+      <input id="description" type="text" class="input-text input" name="description" placeholder="The better sneakers to run" value="{{sneakerToEdit.description}}">
     </div>
     <div class="form-item-wrapper flexed-item">
-      <label for="sneaker-price" class="label-price label">Price</label>
-      <input id="sneaker-price" type="number" class="sneaker-price input" min="1" value="{{sneaker.price}}">
+      <label for="price" class="label-price label">Price</label>
+      <input id="price" type="number" class="sneaker-price input" name="price" min="1" value="{{sneakerToEdit.price}}">
     </div>
     <div class="form-item-wrapper flexed-item">
-      <label for="sneaker-main-cat" class="label-main-cat label">Main category</label>
-      <select id="main_category" class="select" required>
+      <label for="category" class="label-main-cat label">Main category</label>
+      <select id="main_category" class="select" name="category" required>
         <option value="-1" disabled selected>Choose main Category...</option>
         <option value="men">Men</option>
         <option value="women">Women</option>

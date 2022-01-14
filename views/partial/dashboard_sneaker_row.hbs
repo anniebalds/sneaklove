@@ -10,9 +10,13 @@
 <td class="table-division">
   <div>${{this.price}}</div>
 </td>
+
 <td class="table-division">
-  <a href="/product-edit/{{this._id}}" data-id-sneaker="{{this._id}}" class="fa fa-edit table-icon"></a>
+<a href="/product-edit/{{this._id}}" method='post' id="{{this._id}}"><i class="fa fa-edit table-icon"></i></a>
 </td>
+
+
+
 <td class="table-division">
-  <span class="fa fa-trash table-icon" data-id-sneaker="{{this._id}}"  aria-hidden="true"></span>
+  <a href="/delete/{{this._id}}"  method='post' id="{{this._id}}"  aria-hidden="true"><i class="fa fa-trash table-icon"></i></a>
 </td>
