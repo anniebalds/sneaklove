@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const protectAdminRoute = require('./../middlewares/protectPrivateRoute');
 const SneakerModel = require('./../models/Sneaker')
-
+const TagModel = require('./../models/Tag')
 
 console.log(`\n\n
 -----------------------------
@@ -23,14 +23,26 @@ router.get("/", (req, res) => {
 });
 
 router.get("/sneakers/:cat", (req, res) => {
-  res.send("bar");
+  res.render("products");
 });
 
 router.get("/one-product/:id", (req, res) => {
-  res.send("baz");
+  res.render("product_manage");
 });
 
+router.get("/prod-add", protectAdminRoute, async (req, res, next) => {
+  const tags = await TagModel.find()
+  res.render("products_add", { tags })
+})
 
-
+router.post("/prod-add", protectAdminRoute, async (req, res, next) => {
+  const newProduct = { ...req.body };
+  try {
+    await SneakerModel.create(newProduct)
+    res.redirect("/")
+  } catch (err) {
+    next(err)
+  }
+})
 
 module.exports = router;

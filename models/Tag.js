@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const tagSchema = new Schema(
     {
-        label: String   
+        label: String
     }
 )
 
-const TagModel = mongoose.model('user', tagSchema);
+const TagModel = mongoose.model('tag', tagSchema);
 
 module.exports = TagModel;
